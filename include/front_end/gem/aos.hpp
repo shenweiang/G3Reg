@@ -162,8 +162,8 @@ namespace travel {
             nodes_.resize(VERT_SCAN, vector<AOSNode>());
         }
 
-        void segmentObjects(boost::shared_ptr<pcl::PointCloud<T>> cloud_in,
-                            std::vector<boost::shared_ptr<pcl::PointCloud<T>>> &clusters,
+        void segmentObjects(std::shared_ptr<pcl::PointCloud<T>> cloud_in,
+                            std::vector<std::shared_ptr<pcl::PointCloud<T>>> &clusters,
                             vector<float> *vert_angles = nullptr) {
             // 0. reset
             max_label_ = 1;
@@ -205,8 +205,8 @@ namespace travel {
             //printf("Post-processing: %ld ms\n", chrono::duration_cast<chrono::milliseconds>(end-start).count());
         }
 
-        void sphericalProjection(boost::shared_ptr<pcl::PointCloud<T>> cloud_in) {
-            boost::shared_ptr<pcl::PointCloud<T>> valid_cloud = boost::make_shared<pcl::PointCloud<T>>();
+        void sphericalProjection(std::shared_ptr<pcl::PointCloud<T>> cloud_in) {
+            std::shared_ptr<pcl::PointCloud<T>> valid_cloud = std::make_shared<pcl::PointCloud<T>>();
             valid_cloud->points.reserve(cloud_in->points.size());
             int ring_idx = -1, row_idx = -1, col_idx = -1;
             float range;
@@ -258,8 +258,8 @@ namespace travel {
             *cloud_in = *valid_cloud;
         }
 
-        void labelPointcloud(boost::shared_ptr<pcl::PointCloud<T>> cloud_in,
-                             std::vector<boost::shared_ptr<pcl::PointCloud<T>>> &clusters) {
+        void labelPointcloud(std::shared_ptr<pcl::PointCloud<T>> cloud_in,
+                             std::vector<std::shared_ptr<pcl::PointCloud<T>>> &clusters) {
             uint cnt = 0;
             // generate random number
             std::vector<size_t> valid_indices;
@@ -284,7 +284,7 @@ namespace travel {
                         continue;
                 }
 
-                boost::shared_ptr<pcl::PointCloud<T>> cluster(new pcl::PointCloud<T>);
+                std::shared_ptr<pcl::PointCloud<T>> cluster(new pcl::PointCloud<T>);
                 for (auto &p: clusters_[idx]) {
                     if (p->valid) {
                         assert(cloud_in->points[p->idx].x == p->x);

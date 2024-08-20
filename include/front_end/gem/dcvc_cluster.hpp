@@ -37,7 +37,7 @@ public:
         double max_range = 120;
         double min_range = 0.5;
     };
-    using PointCloudPtr = boost::shared_ptr<pcl::PointCloud<PointT>>;
+    using PointCloudPtr = std::shared_ptr<pcl::PointCloud<PointT>>;
 
 private:
 

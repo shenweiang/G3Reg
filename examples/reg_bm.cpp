@@ -4,6 +4,7 @@
 #include <Eigen/Core>
 #include "datasets/datasets_init.h"
 #include "back_end/reglib.h"
+#include <iomanip>
 
 using namespace std;
 using namespace clique_solver;

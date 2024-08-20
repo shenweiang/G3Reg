@@ -16,7 +16,7 @@ namespace g3reg {
 
     class GEM {
     public:
-        typedef boost::shared_ptr<GEM> Ptr;
+        typedef std::shared_ptr<GEM> Ptr;
 
         GEM(std::string metric) : metric(metric) {}
 

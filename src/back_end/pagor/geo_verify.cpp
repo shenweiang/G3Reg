@@ -8,6 +8,7 @@
 #include "nanoflann/KDTreeVectorOfVectorsAdaptor.h"
 #include "robot_utils/lie_utils.h"
 #include <pcl/io/pcd_io.h>
+#include <pcl/common/transforms.h>
 
 using namespace g3reg;
 

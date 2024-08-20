@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include "dataset/kitti_definition.h"
+#include <boost/filesystem.hpp>
 
 namespace kitti_utils {
 

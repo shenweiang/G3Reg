@@ -18,7 +18,7 @@ namespace pcl {
     pcl::PointCloud<pcl::PointXYZI>::Ptr toXYZI(const pcl::PointCloud<pcl::PointXYZL>::Ptr &cloud);
 
     template<typename T>
-    void issKeyPointExtration(boost::shared_ptr<pcl::PointCloud<T>> cloud, boost::shared_ptr<pcl::PointCloud<T>> ISS,
+    void issKeyPointExtration(std::shared_ptr<pcl::PointCloud<T>> cloud, std::shared_ptr<pcl::PointCloud<T>> ISS,
                               pcl::PointIndicesPtr ISS_Idx, double resolution) {
         double iss_salient_radius_ = 6 * resolution;
         double iss_non_max_radius_ = 4 * resolution;
@@ -29,7 +29,7 @@ namespace pcl {
         double iss_min_neighbors_(4);
         int iss_threads_(1); //switch to the number of threads in your cpu for acceleration
 
-        boost::shared_ptr<pcl::search::KdTree<T>> tree(new pcl::search::KdTree<T>());
+        std::shared_ptr<pcl::search::KdTree<T>> tree(new pcl::search::KdTree<T>());
         pcl::ISSKeypoint3D<T, T> iss_detector;
 
         iss_detector.setSearchMethod(tree);
@@ -47,7 +47,7 @@ namespace pcl {
 
     template<typename T>
     void voxelize(
-            const boost::shared_ptr<pcl::PointCloud<T>> srcPtr, boost::shared_ptr<pcl::PointCloud<T>> dstPtr,
+            const std::shared_ptr<pcl::PointCloud<T>> srcPtr, std::shared_ptr<pcl::PointCloud<T>> dstPtr,
             double voxelSize) {
         static pcl::VoxelGrid<T> voxel_filter;
         voxel_filter.setInputCloud(srcPtr);

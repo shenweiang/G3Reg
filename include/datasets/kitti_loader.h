@@ -11,6 +11,7 @@
 #include <pcl/point_types.h>
 #include <pcl/point_cloud.h>
 #include <boost/format.hpp>
+#include <boost/filesystem.hpp>
 #include "utils/config.h"
 #include "dataset/kitti_utils.h"
 #include "datasets/dataloader.h"

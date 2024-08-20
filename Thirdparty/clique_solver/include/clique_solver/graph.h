@@ -39,7 +39,7 @@ namespace clique_solver {
     class Graph {
 
     public:
-        using Ptr = boost::shared_ptr<Graph>;
+        using Ptr = std::shared_ptr<Graph>;
 
         Graph() : num_edges_(0) {
             use_adj_matrix_ = false;

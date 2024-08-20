@@ -30,7 +30,7 @@ namespace clique_solver {
     class GraphVertex {
 
     public:
-        using Ptr = boost::shared_ptr<GraphVertex>;
+        using Ptr = std::shared_ptr<GraphVertex>;
 
         GraphVertex() = default;
 
